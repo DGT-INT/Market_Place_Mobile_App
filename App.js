@@ -17,6 +17,7 @@ import WelcomeScreen from "./app/assets/WelcomeScreen";
 import ViewImageScreen from "./app/ViewImageScreen";
 import AppText from "./app/components/AppText/AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AppButton from "./app/components/AppButton";
 
 export default function App() {
   return (
@@ -27,7 +28,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <AppText>react native</AppText>
+      <AppButton title="Login" onPress={() => console.log("Tapped")} />
     </View>
   );
 }
