@@ -2,9 +2,11 @@
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "expo-constants": "~57.0.17",
+    "formik": "^2.1.4",
     "react-native-gesture-handler": "~2.32.0",
     "react-native-reanimated": "4.5.1",
     "react-native-safe-area-context": "~5.7.0",
-    "react-native-worklets": "0.10.1"
+    "react-native-worklets": "0.10.1",
+    "yup": "^1.7.1"
   }
 }

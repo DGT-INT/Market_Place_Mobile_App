@@ -6,8 +6,8 @@ import { View } from "react-native";
 
 function Screen({ children, style }) {
   return (
-    <SafeAreaProvider style={[styles.screen, style]}>
-      <SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={[styles.screen, style]}>
         <View style={style}>{children}</View>
       </SafeAreaView>
     </SafeAreaProvider>
