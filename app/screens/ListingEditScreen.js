@@ -6,8 +6,7 @@ import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import AppFormPicker from "../components/forms/AppFormPicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import FormImagePicker from "../components/forms/FormImagePicker";
-import * as Location from "expo-location";
-import { useEffect, useState } from "react";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -43,20 +42,7 @@ const categories = [
 ];
 
 function ListingEditScreen() {
-  const [location, setLocation] = useState();
-
-  const getLocation = async () => {
-    const { granted } = await Location.requestForegroundPermissionsAsync();
-    if (!granted) return;
-    const {
-      coords: { latitude, longitude },
-    } = await Location.getCurrentPositionAsync();
-    setLocation({ latitude, longitude });
-  };
-
-  useEffect(() => {
-    getLocation();
-  }, []);
+  const location = useLocation();
 
   return (
     <Screen style={styles.container}>
