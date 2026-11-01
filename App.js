@@ -1,16 +1,13 @@
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Screen from "./app/components/Screen";
-import { Button, Text } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import AuthNavigator from "./app/navigation/AuthNavigator";
-import navigationTheme from "./app/navigation/navigationTheme";
-import AppNavigator from "./app/navigation/AppNavigator";
+import React, { useEffect } from "react";
+import NetInfo from "@react-native-community/netinfo";
+import { AsyncStorage } from "react-native";
 
 export default function App() {
-  return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
-  );
+  useEffect(() => {
+    NetInfo.fetch().then((netInfo) => {
+      console.log(netInfo);
+    });
+  }, []);
+
+  return null;
 }
