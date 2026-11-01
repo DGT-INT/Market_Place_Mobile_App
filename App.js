@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
-import NetInfo from "@react-native-community/netinfo";
-import { AsyncStorage } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import AppNavigator from "./app/navigation/AppNavigator";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 export default function App() {
-  useEffect(() => {
-    NetInfo.fetch().then((netInfo) => {
-      console.log(netInfo);
-    });
-  }, []);
-
-  return null;
+  return (
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
+    </NavigationContainer>
+  );
 }

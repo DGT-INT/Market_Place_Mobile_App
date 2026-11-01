@@ -1,10 +1,8 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/lists/ListItem";
-import { Image } from "react-native-expo-image-cache";
-
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
 
@@ -12,9 +10,9 @@ function ListingDetailsScreen({ route }) {
     <View>
       <Image
         style={styles.image}
-        preview={{ uri: listing.images[0].thumbnailUrl }}
-        tint="light"
-        uri={listing.image[0].url}
+        source={{
+          uri: listing.images[0].url.replace("192.168.0.14", "localhost"),
+        }}
       />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
@@ -47,7 +45,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 500,
+    fontWeight: "500",
   },
   userContainer: {
     marginVertical: 40,

@@ -42,7 +42,10 @@ function ListingScreen({ navigation }) {
             subTitle={"$" + item.price}
             imageURL={item.images[0].url.replace("192.168.0.14", "localhost")}
             onPress={() => navigation.navigate(routes.LISTINGS_DETAILS, item)}
-            thumbnailUrl={item.images[0].thumbnailUrl}
+            thumbnailUrl={item.images[0].thumbnailUrl.replace(
+              "192.168.0.14",
+              "localhost",
+            )}
           />
         )}
       />
