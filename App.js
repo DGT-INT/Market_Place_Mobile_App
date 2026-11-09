@@ -5,9 +5,22 @@ import OfflineNotice from "./app/components/OfflineNotice";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import { useState } from "react";
 import AuthContext from "./app/auth/context";
+import { jwtDecode } from "jwt-decode";
+import { useEffect } from "react";
+import authStorage from "./app/auth/storage";
 
 export default function App() {
   const [user, setUser] = useState();
+
+  const restoreToken = async () => {
+    const token = await authStorage.getToken();
+    if (!token) return;
+    setUser(jwtDecode(token));
+  };
+
+  useEffect(() => {
+    restoreToken();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
