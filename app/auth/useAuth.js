@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import AuthContext from "./context";
 import authStorage from "./storage";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 const useAuth = () => {
   const { user, setUser } = useContext(AuthContext);

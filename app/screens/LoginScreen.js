@@ -10,6 +10,7 @@ import {
   SubmitButton,
 } from "../components/forms"; // Importing the forms index file
 import authApi from "../api/auth";
+import useAuth from "../auth/useAuth";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
