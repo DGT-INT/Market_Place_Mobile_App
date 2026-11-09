@@ -7,6 +7,8 @@ import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ListItemSeperator from "../components/lists/ListItemSeperator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import AuthContext from "../auth/context";
+import { useContext } from "react";
 
 const menuItems = [
   {
@@ -21,13 +23,15 @@ const menuItems = [
 ];
 
 function AccountScreen({ navigation }) {
+  const { user, setUser } = useContext(AuthContext);
+
   return (
     <Screen style={styles.screen}>
       <GestureHandlerRootView>
         <View style={styles.container}>
           <ListItem
-            title="Daniel T"
-            subTitle="DGT-International.com"
+            title={user.name}
+            subTitle={user.email}
             image={require("../assets/mosh.jpg")}
           />
         </View>
@@ -53,6 +57,7 @@ function AccountScreen({ navigation }) {
         <ListItem
           title="Log Out"
           IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+          onPress={() => setUser(null)}
         />
       </GestureHandlerRootView>
     </Screen>
