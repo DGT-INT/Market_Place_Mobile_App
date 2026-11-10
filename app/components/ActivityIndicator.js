@@ -6,7 +6,7 @@ export default function ActivityIndicator({ visible = false }) {
   if (!visible) return null;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.overlay}>
       <LottieView
         source={require("../assets/animations/loader.json")}
         autoPlay
@@ -18,12 +18,18 @@ export default function ActivityIndicator({ visible = false }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
   animation: {
     width: 600,
     height: 600,
+  },
+  overlay: {
+    position: "absolute",
+    backgroundColor: "white",
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 1,
+    opcacity: 0.8,
   },
 });

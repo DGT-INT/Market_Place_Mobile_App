@@ -24,32 +24,34 @@ function ListingScreen({ navigation }) {
   }, []);
 
   return (
-    <Screen style={styles.screen}>
-      {error && (
-        <>
-          <AppText>Couldn't retrieve the listings.</AppText>
-          <AppButton title="Retry" onPress={loadListings} />
-        </>
-      )}
-
+    <>
       <ActivityIndicator visible={loading} />
-      <FlatList
-        data={listings}
-        keyExtractor={(listing) => listing.id.toString()}
-        renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={"$" + item.price}
-            imageURL={item.images[0].url.replace("192.168.0.14", "localhost")}
-            onPress={() => navigation.navigate(routes.LISTINGS_DETAILS, item)}
-            thumbnailUrl={item.images[0].thumbnailUrl.replace(
-              "192.168.0.14",
-              "localhost",
-            )}
-          />
+      <Screen style={styles.screen}>
+        {error && (
+          <>
+            <AppText>Couldn't retrieve the listings.</AppText>
+            <AppButton title="Retry" onPress={loadListings} />
+          </>
         )}
-      />
-    </Screen>
+
+        <FlatList
+          data={listings}
+          keyExtractor={(listing) => listing.id.toString()}
+          renderItem={({ item }) => (
+            <Card
+              title={item.title}
+              subTitle={"$" + item.price}
+              imageURL={item.images[0].url.replace("192.168.0.14", "localhost")}
+              onPress={() => navigation.navigate(routes.LISTINGS_DETAILS, item)}
+              thumbnailUrl={item.images[0].thumbnailUrl.replace(
+                "192.168.0.14",
+                "localhost",
+              )}
+            />
+          )}
+        />
+      </Screen>
+    </>
   );
 }
 
