@@ -8,8 +8,6 @@ This project gave me hands-on experience building a mobile application that comm
 
 ## Screenshots
 
-> Screenshots from the iOS Simulator will be added here.
-
 | Welcome                                                  | Listings                                                   | Listing Details                                     |
 | -------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------- |
 | <img src="screenshots/welcome_screen.png" width="250" /> | <img src="screenshots/discovery_screen.png" width="250" /> | <img src="./screenshots/details.png" width="250" /> |
